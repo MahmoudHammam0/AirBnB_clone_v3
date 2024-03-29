@@ -4,6 +4,7 @@ from api.v1.views import app_views
 from flask import jsonify, abort, make_response, request
 from models.state import State
 from models import storage
+import json
 
 
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
@@ -41,6 +42,11 @@ def delete_state(state_id):
 @app_views.route('/states/', methods=['POST'], strict_slashes=False)
 def create_state():
     """ creates a new state """
+    try:
+        state_dict = json.loads(request.data)
+    except json.JSONDecodeError:
+        abort(400, "Not a JSON")
+
     state_dict = request.get_json()
 
     if not state_dict:
