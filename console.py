@@ -185,6 +185,15 @@ class HBNBCommand(cmd.Cmd):
                     'count': self.do_count, 'destroy': self.do_destroy,
                     'update': self.do_update}
         parts = line.split('.')
+        if len(parts) < 2:
+            print("** invalid command: <class name>.command() **")
+            print("** available commands:                                            **")
+            print("**       all(<id>)                                                **")
+            print("**       show(<id>)                                               **")
+            print("**       destroy(<id>)                                            **")
+            print("**       update(<id>, <attribute name>, <attribute value>)        **")
+            print("**       update(<id>, <dictionary representation>))               **")
+            return
         parts[1] = parts[1].replace('(', ' ').replace(')', '')
         parts[1] = parts[1].replace('"', '').replace(',', '')
         parts[1] = parts[1].replace('{', '').replace('}', '')
