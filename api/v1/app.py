@@ -12,7 +12,7 @@ app.register_blueprint(app_views)
 
 @app.teardown_appcontext
 def tear_down(exception):
-    'close the storage at the end of each request'
+    '''close the storage at the end of each request'''
     storage.close()
 
 

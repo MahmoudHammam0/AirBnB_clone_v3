@@ -15,7 +15,7 @@ from models.review import Review
 
 @app_views.route('/status')
 def status():
-    'return a JSON status representation'
+    '''return a JSON status representation'''
     return jsonify({"status": "OK"})
 
 
