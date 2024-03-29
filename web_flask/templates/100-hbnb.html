@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>AirBnB</title>
+		<link rel="stylesheet" href="styles/4-common.css">
+		<link rel="stylesheet" href="styles/3-header.css">
+		<link rel="stylesheet" href="styles/3-footer.css">
+		<link rel="stylesheet" href="styles/8-places.css">
+		<link rel="icon" href="images/icon.png">
+	</head>
+	<body>
+		<header>
+		</header>
+		<div class="container">
+			<section class="filters">
+				<button>
+					Search
+				</button>
+				<div class="locations">
+					<h3>States</h3>
+					<h4>&nbsp;</h4>
+					<div>
+						<ul class="popover">
+							{% for state in states|sort(attribute="name") %}
+							<li><h2>{{ state.name }}</h2></li>
+							<ul class="sec">
+								{% for city in state.cities|sort(attribute="name") %}
+								<li>{{ city.name }}</li>
+								{% endfor %}
+							</ul>
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+				<div class="amenities">
+					<h3>Amenities</h3>
+					<h4>&nbsp;</h4>
+					<div>
+						<ul class="popover">
+						{% for amenity in amenities|sort(attribute="name") %}
+							<li>{{ amenity.name }}</li>
+						{% endfor %}
+						</ul>
+					</div>
+				</div>
+
+			</section>
+			<section class="Places">
+				<h1>Places</h1>
+				<ul>
+				{% for place in places|sort(attribute="name") %}
+					<li>
+						<article>
+							<h2>{{ place.name }}</h2>
+							<div class="price_by_night">
+								${{ place.price_by_night }}
+							</div>
+							<div class="information">
+								<div class="max_guest">
+								{% if place.max_guest == 1 %}
+									{{ place.max_guest }} Guest
+								{% elif place.max_guest == 0 %}
+									{{ place.max_guest }} Guest
+								{% else %}
+									{{ place.max_guest }} Guests
+								{% endif %}
+								</div>
+								<div class="number_rooms">
+								{% if place.number_rooms == 1 %}
+									{{ place.number_rooms }} Room
+								{% elif place.number_rooms == 0 %}
+									{{ place.number_rooms }} Room
+								{% else %}
+									{{ place.number_rooms }} Rooms
+								{% endif %}
+								</div>
+								<div class="number_bathrooms">
+								{% if place.number_bathrooms == 1 %}
+									{{ place.number_bathrooms }} Bathroom
+								{% elif place.number_bathrooms == 0 %}
+									{{ place.number_bathrooms }} Bathroom
+								{% else %}
+									{{ place.number_bathrooms }} Bathrooms
+								{% endif %}
+								</div>
+							</div>
+							<div class="user">
+								<strong>Owner</strong>: {{ place.user.first_name }} {{ place.user.last_name }}
+							</div>
+							<div class="description">
+								{{ place.description | safe }}
+							</div>
+						</article>
+					</li>
+				{% endfor %}
+				</ul>
+			</section>
+		</div>
+	</body>
+</html>

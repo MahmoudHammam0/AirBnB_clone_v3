@@ -1,0 +1,270 @@
+section.filters {
+	background-color: #FFFFFF;
+	height: 70px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+}
+
+section.filters button {
+	font-size: 18px;
+	background-color: #FF5A5F;
+	color: #FFFFFF;
+	height: 48px;
+	width: 20%;
+	border: none;
+	border-radius: 4px;
+	margin: 11px 30px;
+	float: right;
+}
+
+section.filters button:hover {
+	opacity: 0.9;
+}
+
+.locations {
+	height: 100%;
+	width: 25%;
+	border-right: 1px solid #DDDDDD;
+	float: left;
+}
+
+.amenities {
+	height: 100%;
+	width: 25%;
+	float: left;
+}
+
+.filters h3 {
+	font-weight: 600;
+	font-size: 18px;
+	margin-left: 50px;
+	margin-top: 17px;
+	margin-bottom: 0;
+}
+
+.filters h4 {
+	font-weight: 400;
+	font-size: 14px;
+	margin-left: 50px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.popover {
+	display: none;
+	background-color: #FAFAFA;
+	list-style-type: none;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 16px;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+	position: relative;
+	z-index: 100;
+}
+
+.amenities .popover {
+	padding-top: 30px;
+}
+
+.amenities li {
+	padding-left: 20px;
+	margin-bottom: 5px;
+}
+
+.popover li ul {
+	list-style: none;
+	padding-left: 22px;
+	margin-top: 2px;
+}
+
+ul li ul li {
+	margin-bottom: 3px;
+}
+
+.amenities:hover .popover,
+.locations:hover .popover {
+	display: block;
+}
+
+.popover h2 {
+	font-size: 18px;
+	margin-bottom: 0;
+}
+
+.Places h1 {
+	font-size: 30px;
+	padding-left: 15px;
+	margin-bottom: 0px;
+}
+
+.Places ul li {
+	list-style-type: none;
+	display: inline-flex;
+}
+
+.Places article {
+	width: 390px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
+	text-align: center;
+	padding: 20px 20px;
+	margin: 5px 37px 30px 5px;
+}
+
+.Places h2 {
+	font-size: 30px;
+	margin: 0 auto;
+}
+
+.Places li:last-child {
+	margin-left: 235px;
+}
+
+.Places .price_by_night {
+	color: #FF5A5F;
+	border: 4px solid #FF5A5F;
+	border-radius: 50%;
+	min-width: 60px;
+	height: 60px;
+	display: inline-block;
+	font-size: 30px;
+	padding: 25px 10px 0px 10px;
+	margin-left: 250px;
+	margin-right: -50px;
+	margin-top: -40px;
+}
+
+.Places .information {
+	height: 80px;
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+	margin-top: 10px;
+}
+
+.information .max_guest {
+	width: 100px;
+	padding-top: 57px;
+	background-image: url(../images/Guests.png);
+	background-repeat: no-repeat;
+	background-position: 27px;
+	display: inline-block;
+}
+
+.information .number_rooms {
+	width: 100px;
+	padding-top: 57px;
+	padding-left: 15px;
+	background-image: url(../images/Bedroom.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-position: 41px;
+}
+
+.information .number_bathrooms {
+	width: 100px;
+	padding-top: 57px;
+	padding-left: 15px;
+	background-image: url(../images/Bathroom.png);
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-position: 41px;
+}
+
+.Places .user {
+	text-align: left;
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+
+.Places .description {
+	text-align: left;
+}
+
+.Places .amenities {
+	margin-top: 40px;
+	text-align: left;
+	width: 390px;
+	height: auto;
+}
+
+.Places .amenities h2 {
+	font-size: 16px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.Places .amenities ul {
+	list-style: none;
+	margin-top: 20px;
+	margin-bottom: 60px;
+}
+
+.Places .amenities li {
+	display: block;
+	height: 30px;
+	width: 390px;
+	margin-left: -60px;
+	padding-left: 57px;
+	padding-top: 10px;
+	margin-top: -5px;
+	margin-bottom: 0;
+}
+
+.tv {
+	background-image: url(../images/TV.png);
+	background-repeat: no-repeat;
+	background-size: 25px;
+	background-position: 20px 3px;
+}
+
+.wifi {
+	background-image: url(../images/Wifi.png);
+	background-repeat: no-repeat;
+	background-size: 25px;
+	background-position: 20px 3px;
+}
+
+.pets {
+	background-image: url(../images/Pets.png);
+	background-repeat: no-repeat;
+	background-size: 25px;
+	background-position: 20px 3px;
+}
+
+.Places .reviews {
+	text-align: left;
+	width: 390px;
+	clear: both;
+	margin-top: 40px;
+}
+
+.Places .reviews h2 {
+	font-size: 16px;
+	border-bottom: 1px solid #DDDDDD;
+	padding-bottom: 10px;
+}
+
+.Places .reviews h3 {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.Places .reviews p {
+	font-size: 12px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.Places .reviews ul {
+	list-style: none;
+	margin-bottom: 20px;
+}
+
+.Places .reviews li {
+	margin-left: -40px;
+	display: block;
+}

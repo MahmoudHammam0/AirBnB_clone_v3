@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+'HBNB module'
+from flask import Flask, render_template
+
+
+app = Flask(__name__)
+
+
+@app.route('/', strict_slashes=False)
+def hello():
+    'Hello HBNB!'
+    return 'Hello HBNB!'
+
+
+@app.route('/hbnb', strict_slashes=False)
+def hbnb():
+    'HBNB home'
+    return 'HBNB'
+
+
+@app.route('/c/<text>', strict_slashes=False)
+def C(text):
+    'C + text'
+    text = text.replace('_', ' ')
+    return f'C {text}'
+
+
+@app.route('/python/', strict_slashes=False)
+@app.route('/python/<text>', strict_slashes=False)
+def python(text="is cool"):
+    'python + text'
+    text = text.replace('_', ' ')
+    return f'Python {text}'
+
+
+@app.route('/number/<int:n>', strict_slashes=False)
+def num(n):
+    'only integers'
+    return f'{n} is a number'
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def temp_num(n):
+    'display template only if n was int'
+    return render_template('5-number.html', n=n)
+
+
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def num_odd_or_even(n):
+    'check if int n is odd or even'
+    if n % 2 == 0:
+        mod = 'even'
+    else:
+        mod = 'odd'
+    return render_template('6-number_odd_or_even.html', n=n, mod=mod)
+
+
+if __name__ == '__main__':
+    app.run(port=5000, host='0.0.0.0')

@@ -1,0 +1,123 @@
+section.filters {
+	background-color: #FFFFFF;
+	height: 70px;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+}
+
+section.filters button {
+	font-size: 18px;
+	background-color: #FF5A5F;
+	color: #FFFFFF;
+	height: 48px;
+	width: 20%;
+	border: none;
+	border-radius: 4px;
+	margin: 11px 30px;
+	float: right;
+}
+
+section.filters button:hover {
+	opacity: 0.9;
+}
+
+.locations {
+	height: 100%;
+	width: 25%;
+	border-right: 1px solid #DDDDDD;
+	float: left;
+}
+
+.amenities {
+	height: 100%;
+	width: 25%;
+	float: left;
+}
+
+.filters h3 {
+	font-weight: 600;
+	font-size: 18px;
+	margin-left: 50px;
+	margin-top: 17px;
+	margin-bottom: 0;
+}
+
+.filters h4 {
+	font-weight: 400;
+	font-size: 14px;
+	margin-left: 50px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.popover {
+	display: none;
+	background-color: #FAFAFA;
+	list-style-type: none;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	margin-top: 16px;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	padding-left: 30px;
+}
+
+.amenities .popover {
+	padding-top: 30px;
+}
+
+.amenities li {
+	padding-left: 20px;
+	margin-bottom: 5px;
+}
+
+.popover li ul {
+	list-style: none;
+	padding-left: 22px;
+	margin-top: 2px;
+}
+
+ul li ul li {
+	margin-bottom: 3px;
+}
+
+.amenities:hover .popover,
+.locations:hover .popover {
+	display: block;
+}
+
+.popover h2 {
+	font-size: 18px;
+	margin-bottom: 0;
+}
+
+.Places h1 {
+	font-size: 30px;
+	padding-left: 15px;
+	margin-bottom: 0px;
+}
+
+.Places ul li {
+	list-style-type: none;
+	display: inline-block;
+}
+
+.Places article {
+	width: 390px;
+	border: 1px solid #FF5A5F;
+	border-radius: 4px;
+	text-align: center;
+	padding: 20px 20px;
+	margin: 5px 37px 30px 5px;
+}
+
+.Places h2 {
+	font-size: 30px;
+	margin: 0 auto;
+}
+
+.Places li:last-child {
+	margin-left: 235px;
+}
