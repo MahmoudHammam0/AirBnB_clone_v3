@@ -85,3 +85,24 @@ class DBStorage:
     def close(self):
         'tell our registry to dispose of session'
         self.__session.close()
+
+    def get(self, cls, id):
+        """ retrieve one object of a class 'cls' based on its id """
+        if cls in self.classes.values():
+            objects_dict = self.all(cls)
+            for obj in objects_dict.values():
+                if obj.id == id:
+                    return obj
+        return None
+
+    def count(self, cls=None):
+        """ counts the number of objects of the 'cls' class
+            or the number of all objects if no class is specified
+        """
+        if cls:
+            if cls in self.classes.values():
+                return self.__session.query(cls).count()
+            else:
+                return 0
+        else:
+            return len(self.all())

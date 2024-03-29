@@ -176,3 +176,55 @@ class TestFileStorage(unittest.TestCase):
         '''test reload method with string argument'''
         with self.assertRaises(TypeError):
             self.storage.reload("RELOAD")
+
+    def test_get_none(self):
+        '''test get method without input'''
+        obj = self.storage.get()
+        self.assertIsNone(obj)
+
+    def test_get(self):
+        '''tests get method with a class & id'''
+        user = User()
+        self.storage.new(user)
+        self.storage.save()
+        self.storage.reload()
+        retrieved_user = self.storage.get(User, user.id)
+        self.assertEqual(retrieved_user, user)
+
+    def test_get_nonexistent_obj(self):
+        '''tests get method with id that doesn't exist'''
+        state = self.storage.get(State, -15.2)
+        self.assertIsNone(state)
+
+    def test_get_with_wrong_class(self):
+        '''test get method with wrong class'''
+        User
+        retrieved_user = self.storage.get(City, user.id)
+        self.assertIsNone(retrieved_user)
+
+    def test_count_all_classes(self):
+        '''tests count method without a specified class'''
+        number_of_objs = len(self.storage.all())
+        count = self.storage.count()
+        self.assertEqual(count, number_of_objs)
+
+    def test_count_class(self):
+        '''test count method with a class'''
+        number_of_objs = len(self.storage.all(User))
+        count = self.storage.count(User)
+        self.assertEqual(count, number_of_objs)
+
+    def test_count_after_creating_obj(self):
+        '''tests count method after creating an object'''
+        number_of_objs = len(self.storage.all(User))
+        user = User()
+        self.storage.new(user)
+        self.storage.save()
+        self.storage.reload()
+        count = self.storage.count(User)
+        self.assertEqual(count, number_of_objs + 1)
+
+    def test_count_with_wrong_class(self):
+        '''tests count method with nonexistent class'''
+        count = self.storage.count("hi")
+        self.assertEqual(count, 0)
