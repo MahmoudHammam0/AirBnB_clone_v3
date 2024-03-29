@@ -13,7 +13,7 @@ from models.place import Place
 from models.review import Review
 
 
-@app_views.route('/status')
+@app_views.route('/status', strict_slashes=False)
 def status():
     'return a JSON status representation'
     return jsonify({"status": "OK"})
