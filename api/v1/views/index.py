@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''''Index module'''
+''''Index module create variable app_views which is instance of Blueprint'''
 from api.v1.views import app_views
 from flask import jsonify
 

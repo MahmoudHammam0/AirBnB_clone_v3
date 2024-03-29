@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''API app module'''
+'''API app module that return the status of your API'''
 from flask import Flask
 from models import storage
 from api.v1.views import app_views
