@@ -23,7 +23,7 @@ def status():
 def stats_count():
     """ retrieves the number of each objects by type """
     stats = {
-        'amenities': storage.count('Amenity'),
+        'amenities': storage.count(Amenity),
         'cities': storage.count(City),
         'places': storage.count(Place),
         'reviews': storage.count(Review),
