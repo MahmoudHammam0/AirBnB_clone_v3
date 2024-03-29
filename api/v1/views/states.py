@@ -70,6 +70,11 @@ def update_state(state_id):
     if not state:
         abort(404)
 
+    try:
+        state_dict = json.loads(request.data)
+    except json.JSONDecodeError:
+        abort(400, "Not a JSON")
+
     state_dict = request.get_json()
 
     if not state_dict:
