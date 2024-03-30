@@ -41,7 +41,7 @@ def delete_user(user_id):
 
 @app_views.route('/users', methods=['POST'], strict_slashes=False)
 def create_user():
-    'Creates a User'
+    '''Creates a User'''
     try:
         data = request.get_json()
     except Exception as e:
@@ -61,7 +61,7 @@ def create_user():
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 def update_user(user_id):
-    'Updates a User object'
+    '''Updates a User object'''
     user = storage.get(User, user_id)
     if user is None:
         abort(404)
