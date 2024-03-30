@@ -52,9 +52,8 @@ def create_user():
         abort(400, description="Missing email")
     if "password" not in request.json:
         abort(400, description="Missing password")
-    new_user = User()
-    for key, value in request.get_json().items():
-        setattr(new_user, key, value)
+    data = request.get_json()
+    new_user = User(**data)
     storage.new(new_user)
     storage.save()
     return jsonify(new_user.to_dict()), 201
