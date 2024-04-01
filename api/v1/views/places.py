@@ -116,14 +116,14 @@ def place_search():
         abort(400, 'Not a JSON')
     body_dict = request.get_json()
     if body_dict == {} or (body_dict['states'] == []
-                         and body_dict['cities'] == []
-                         and body_dict['amenities'] == []):
+                           and body_dict['cities'] == []
+                           and body_dict['amenities'] == []):
         places = storage.all(Place).values()
         places_list = []
         for place in places:
             places_list.append(place.to_dict())
         return jsonify(places_list)
-    
+
     res = []
     for state_id in body_dict["states"]:
         state = storage.get(State, state_id)
