@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-API app module that return the status of your API
+PI app module that return the status of your API
 '''
 from flask import Flask, make_response, jsonify
 from models import storage
