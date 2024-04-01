@@ -13,13 +13,13 @@ from models.place import Place
 from models.review import Review
 
 
-@app_views.route('/status')
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
 def status():
     '''return a JSON status representation'''
     return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def stats_count():
     """ retrieves the number of each objects by type """
     stats = {
