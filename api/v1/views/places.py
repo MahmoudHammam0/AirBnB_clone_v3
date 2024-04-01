@@ -4,7 +4,9 @@ from api.v1.views import app_views
 from flask import jsonify, abort, make_response, request
 from models.place import Place
 from models.city import City
+from models.state import State
 from models.user import User
+from models.amenity import Amenity
 from models import storage
 
 
@@ -103,3 +105,48 @@ def update_place(place_id):
     storage.save()
 
     return make_response(jsonify(place.to_dict()), 200)
+
+
+@app_views.route('/places_search', methods=['POST'], strict_slashes=False)
+def place_search():
+    'Retrieves all Place objects depending of the JSON in the body of request'
+    try:
+        re_body = request.get_json()
+    except Exception as e:
+        abort(400, 'Not a JSON')
+    body_dict = request.get_json()
+    if body_dict == {} or (body_dict['states'] == []
+                         and body_dict['cities'] == []
+                         and body_dict['amenities'] == []):
+        places = storage.all(Place).values()
+        places_list = []
+        for place in places:
+            places_list.append(place.to_dict())
+        return jsonify(places_list)
+    
+    res = []
+    for state_id in body_dict["states"]:
+        state = storage.get(State, state_id)
+        for city in state.cities:
+            if city.id in body_dict["cities"]:
+                continue
+            for place in city.places:
+                res.append(place)
+    if body_dict['cities']:
+        for city_id in body_dict['cities']:
+            city = storage.get(City, city_id)
+            for place in city.places:
+                res.append(place)
+    if body_dict['amenities']:
+        amenities = []
+        for amenity_id in body_dict['amenities']:
+            amenity = storage.get(Amenity, amenity_id)
+            amenities.append(amenity)
+        for place in res:
+            if place.amenities != amenities:
+                res.remove(place)
+    json_res = []
+    for place in res:
+        json_res.append(place.to_dict())
+    print(len(json_res))
+    return jsonify(json_res)
