@@ -50,9 +50,12 @@ class BaseModel:
 
     def to_dict(self):
         '''returns a dictionary containing all keys/values of the instance'''
-        if '_sa_instance_state' in self.__dict__:
-            del self.__dict__['_sa_instance_state']
         res = self.__dict__.copy()
+        if '_sa_instance_state' in res:
+            del res['_sa_instance_state']
+        if getenv('HBNB_TYPE_STORAGE') == 'db':
+            if 'password' in res:
+                del res['password']
         res['created_at'] = res['created_at'].isoformat()
         res['updated_at'] = res['updated_at'].isoformat()
         res['__class__'] = self.__class__.__name__
