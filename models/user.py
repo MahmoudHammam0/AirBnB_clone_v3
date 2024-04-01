@@ -17,7 +17,6 @@ class User(BaseModel, Base):
     places = relationship("Place", cascade="all, delete-orphan",
                           backref="user")
 
-
     def __setattr__(self, name, value):
         """Override the __setattr__ method to hash passwords when setting."""
         if name == 'password':
