@@ -13,8 +13,10 @@ Base = declarative_base()
 class BaseModel:
     '''defines all common attributes/methods for other classes'''
     id = Column(String(60), unique=True, nullable=False, primary_key=True)
-    created_at = Column(DateTime, nullable=False, default=(datetime.datetime.utcnow()))
-    updated_at = Column(DateTime, nullable=False, default=(datetime.datetime.utcnow()))
+    created_at = Column(DateTime, nullable=False,
+                        default=(datetime.datetime.utcnow()))
+    updated_at = Column(DateTime, nullable=False,
+                        default=(datetime.datetime.utcnow()))
 
     def __init__(self, *args, **kwargs):
         '''initialization'''
@@ -36,7 +38,7 @@ class BaseModel:
                     setattr(self, 'created_at', datetime.datetime.now())
                 if 'updated_at' not in kwargs.keys():
                     setattr(self, 'updated_at', datetime.datetime.now())
-    
+
     def __str__(self):
         '''defines how the should be represented as a string'''
         return ("[{}] ({}) {}".format(self.__class__.__name__,
